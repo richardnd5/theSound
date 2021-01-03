@@ -8,7 +8,7 @@ public struct Sound {
 	private let mainMixer = AKMixer()
 	private var reverb: AKReverb?
 
-	let melody = [1,1,5,5,6,6,5,4,4,3,3,2,2,1]
+	var melodyPlayer = MelodyPlayer()
 
 	//MARK: Setup
 	mutating func setup(){
@@ -26,18 +26,10 @@ public struct Sound {
 //MARK: Play Sounds
 extension Sound {
 
-	mutating func scaleDegreeToMidiNote(_ degree: Int, key: Int = 0)-> MIDINoteNumber? {
-		if degree == 0 {
-			print("scale degree was zero")
-			return nil
-		}
-
-		return MusicConstants.majorScale[degree-1]
+	mutating func playNoteOfMelody() {
+		melodyPlayer.playNoteOfMelody()
 	}
 
-	mutating func playNoteOfMelody(){
-
-	}
 	mutating func playMarimba(note: Int, velocity: Int = 127){
 		soundEffects.play(
 			.marimbaC,

@@ -20,6 +20,7 @@
 		228F5C9D25A26AD200E2EF45 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C9C25A26AD200E2EF45 /* Sound.swift */; };
 		228F5CA025A26B9A00E2EF45 /* MusicConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C9F25A26B9A00E2EF45 /* MusicConstants.swift */; };
 		228F5CA525A2735F00E2EF45 /* footstep1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 228F5CA325A2727E00E2EF45 /* footstep1.mp3 */; };
+		228F5CAA25A28FC300E2EF45 /* MelodyPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5CA925A28FC300E2EF45 /* MelodyPlayer.swift */; };
 		9501ED9DCAB860E234FEFE95 /* Pods_theSound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ACC2A4218FB285ACC8EAE1 /* Pods_theSound.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		228F5C9C25A26AD200E2EF45 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		228F5C9F25A26B9A00E2EF45 /* MusicConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicConstants.swift; sourceTree = "<group>"; };
 		228F5CA325A2727E00E2EF45 /* footstep1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = footstep1.mp3; sourceTree = "<group>"; };
+		228F5CA925A28FC300E2EF45 /* MelodyPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodyPlayer.swift; sourceTree = "<group>"; };
 		24ACC2A4218FB285ACC8EAE1 /* Pods_theSound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theSound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72EF15B399D3641FBCC12793 /* Pods-theSound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theSound.debug.xcconfig"; path = "Target Support Files/Pods-theSound/Pods-theSound.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				222201D025A25F18001349F9 /* SceneDelegate.swift */,
 				222201D225A25F18001349F9 /* ViewController.swift */,
 				228F5C9C25A26AD200E2EF45 /* Sound.swift */,
+				228F5CA925A28FC300E2EF45 /* MelodyPlayer.swift */,
 				228F5C9F25A26B9A00E2EF45 /* MusicConstants.swift */,
 				228F5C9625A268B300E2EF45 /* SoundClips.swift */,
 				228F5C9325A2664800E2EF45 /* SoundEffect.swift */,
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228F5CAA25A28FC300E2EF45 /* MelodyPlayer.swift in Sources */,
 				228F5C9D25A26AD200E2EF45 /* Sound.swift in Sources */,
 				222201D325A25F18001349F9 /* ViewController.swift in Sources */,
 				222201CF25A25F18001349F9 /* AppDelegate.swift in Sources */,
