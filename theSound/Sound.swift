@@ -19,6 +19,7 @@ public struct Sound {
 
 		mainMixer.connect(input: soundEffectMixer)
 		mainMixer.connect(input: reverb)
+		print("Adding a print statement")
 
 	}
 }
