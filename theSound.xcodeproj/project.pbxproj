@@ -22,6 +22,14 @@
 		228F5CA525A2735F00E2EF45 /* footstep1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 228F5CA325A2727E00E2EF45 /* footstep1.mp3 */; };
 		228F5CAA25A28FC300E2EF45 /* MelodyPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5CA925A28FC300E2EF45 /* MelodyPlayer.swift */; };
 		9501ED9DCAB860E234FEFE95 /* Pods_theSound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ACC2A4218FB285ACC8EAE1 /* Pods_theSound.framework */; };
+		BC194C9D25A7D893002FA7E1 /* BackgroundStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9825A7D893002FA7E1 /* BackgroundStars.swift */; };
+		BC194C9E25A7D893002FA7E1 /* WorldBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9B25A7D893002FA7E1 /* WorldBlock.swift */; };
+		BC194CA025A7D893002FA7E1 /* Bumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9525A7D893002FA7E1 /* Bumper.swift */; };
+		BC194CA125A7D893002FA7E1 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9625A7D893002FA7E1 /* Ball.swift */; };
+		BC194CA225A7D893002FA7E1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9725A7D893002FA7E1 /* GameScene.swift */; };
+		BC194CA325A7D893002FA7E1 /* Plank.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9925A7D893002FA7E1 /* Plank.swift */; };
+		BCE76EDD25A7DC3D009F6A60 /* SKScene+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */; };
+		BCE76EE025A7DD22009F6A60 /* GameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +52,14 @@
 		228F5CA925A28FC300E2EF45 /* MelodyPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodyPlayer.swift; sourceTree = "<group>"; };
 		24ACC2A4218FB285ACC8EAE1 /* Pods_theSound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theSound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72EF15B399D3641FBCC12793 /* Pods-theSound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theSound.debug.xcconfig"; path = "Target Support Files/Pods-theSound/Pods-theSound.debug.xcconfig"; sourceTree = "<group>"; };
+		BC194C9525A7D893002FA7E1 /* Bumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bumper.swift; sourceTree = "<group>"; };
+		BC194C9625A7D893002FA7E1 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		BC194C9725A7D893002FA7E1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		BC194C9825A7D893002FA7E1 /* BackgroundStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStars.swift; sourceTree = "<group>"; };
+		BC194C9925A7D893002FA7E1 /* Plank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plank.swift; sourceTree = "<group>"; };
+		BC194C9B25A7D893002FA7E1 /* WorldBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldBlock.swift; sourceTree = "<group>"; };
+		BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+extensions.swift"; sourceTree = "<group>"; };
+		BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,15 +98,11 @@
 				222201CE25A25F18001349F9 /* AppDelegate.swift */,
 				222201D025A25F18001349F9 /* SceneDelegate.swift */,
 				222201D225A25F18001349F9 /* ViewController.swift */,
-				228F5C9C25A26AD200E2EF45 /* Sound.swift */,
-				228F5CA925A28FC300E2EF45 /* MelodyPlayer.swift */,
-				228F5C9F25A26B9A00E2EF45 /* MusicConstants.swift */,
-				228F5C9625A268B300E2EF45 /* SoundClips.swift */,
-				228F5C9325A2664800E2EF45 /* SoundEffect.swift */,
-				228F5C9025A2662200E2EF45 /* SoundEffects.swift */,
+				BC194CA525A7D8A3002FA7E1 /* Game */,
+				222201D425A25F18001349F9 /* Main.storyboard */,
+				BC194C8525A7D6DA002FA7E1 /* Sound */,
 				228F5C9925A269EF00E2EF45 /* marimbaC.mp3 */,
 				228F5CA325A2727E00E2EF45 /* footstep1.mp3 */,
-				222201D425A25F18001349F9 /* Main.storyboard */,
 				222201D725A25F19001349F9 /* Assets.xcassets */,
 				222201D925A25F19001349F9 /* LaunchScreen.storyboard */,
 				222201DC25A25F19001349F9 /* Info.plist */,
@@ -104,6 +116,34 @@
 				24ACC2A4218FB285ACC8EAE1 /* Pods_theSound.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC194C8525A7D6DA002FA7E1 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				228F5C9C25A26AD200E2EF45 /* Sound.swift */,
+				228F5CA925A28FC300E2EF45 /* MelodyPlayer.swift */,
+				228F5C9F25A26B9A00E2EF45 /* MusicConstants.swift */,
+				228F5C9625A268B300E2EF45 /* SoundClips.swift */,
+				228F5C9325A2664800E2EF45 /* SoundEffect.swift */,
+				228F5C9025A2662200E2EF45 /* SoundEffects.swift */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		BC194CA525A7D8A3002FA7E1 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				BC194C9725A7D893002FA7E1 /* GameScene.swift */,
+				BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */,
+				BC194C9B25A7D893002FA7E1 /* WorldBlock.swift */,
+				BC194C9625A7D893002FA7E1 /* Ball.swift */,
+				BC194C9925A7D893002FA7E1 /* Plank.swift */,
+				BC194C9525A7D893002FA7E1 /* Bumper.swift */,
+				BC194C9825A7D893002FA7E1 /* BackgroundStars.swift */,
+				BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 		E1293BF308D01DCB19F51428 /* Pods */ = {
@@ -213,14 +253,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC194C9D25A7D893002FA7E1 /* BackgroundStars.swift in Sources */,
 				228F5CAA25A28FC300E2EF45 /* MelodyPlayer.swift in Sources */,
+				BC194CA225A7D893002FA7E1 /* GameScene.swift in Sources */,
 				228F5C9D25A26AD200E2EF45 /* Sound.swift in Sources */,
 				222201D325A25F18001349F9 /* ViewController.swift in Sources */,
+				BC194CA025A7D893002FA7E1 /* Bumper.swift in Sources */,
 				222201CF25A25F18001349F9 /* AppDelegate.swift in Sources */,
 				228F5C9425A2664800E2EF45 /* SoundEffect.swift in Sources */,
+				BC194CA325A7D893002FA7E1 /* Plank.swift in Sources */,
 				228F5C9725A268B300E2EF45 /* SoundClips.swift in Sources */,
+				BCE76EE025A7DD22009F6A60 /* GameLabel.swift in Sources */,
+				BCE76EDD25A7DC3D009F6A60 /* SKScene+extensions.swift in Sources */,
 				228F5CA025A26B9A00E2EF45 /* MusicConstants.swift in Sources */,
 				228F5C9125A2662200E2EF45 /* SoundEffects.swift in Sources */,
+				BC194CA125A7D893002FA7E1 /* Ball.swift in Sources */,
+				BC194C9E25A7D893002FA7E1 /* WorldBlock.swift in Sources */,
 				222201D125A25F18001349F9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,7 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C6AQ322Q62;
 				INFOPLIST_FILE = theSound/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,7 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C6AQ322Q62;
 				INFOPLIST_FILE = theSound/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
