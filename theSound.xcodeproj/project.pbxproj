@@ -28,6 +28,7 @@
 		BC194CA125A7D893002FA7E1 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9625A7D893002FA7E1 /* Ball.swift */; };
 		BC194CA225A7D893002FA7E1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9725A7D893002FA7E1 /* GameScene.swift */; };
 		BC194CA325A7D893002FA7E1 /* Plank.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9925A7D893002FA7E1 /* Plank.swift */; };
+		BC2177C025A7FE66005F05B3 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2177BF25A7FE66005F05B3 /* Triangle.swift */; };
 		BCE76EDD25A7DC3D009F6A60 /* SKScene+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */; };
 		BCE76EE025A7DD22009F6A60 /* GameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		BC194C9825A7D893002FA7E1 /* BackgroundStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStars.swift; sourceTree = "<group>"; };
 		BC194C9925A7D893002FA7E1 /* Plank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plank.swift; sourceTree = "<group>"; };
 		BC194C9B25A7D893002FA7E1 /* WorldBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldBlock.swift; sourceTree = "<group>"; };
+		BC2177BF25A7FE66005F05B3 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+extensions.swift"; sourceTree = "<group>"; };
 		BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 				BC194C9725A7D893002FA7E1 /* GameScene.swift */,
 				BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */,
 				BC194C9B25A7D893002FA7E1 /* WorldBlock.swift */,
+				BC2177BF25A7FE66005F05B3 /* Triangle.swift */,
 				BC194C9625A7D893002FA7E1 /* Ball.swift */,
 				BC194C9925A7D893002FA7E1 /* Plank.swift */,
 				BC194C9525A7D893002FA7E1 /* Bumper.swift */,
@@ -256,6 +259,7 @@
 				BC194C9D25A7D893002FA7E1 /* BackgroundStars.swift in Sources */,
 				228F5CAA25A28FC300E2EF45 /* MelodyPlayer.swift in Sources */,
 				BC194CA225A7D893002FA7E1 /* GameScene.swift in Sources */,
+				BC2177C025A7FE66005F05B3 /* Triangle.swift in Sources */,
 				228F5C9D25A26AD200E2EF45 /* Sound.swift in Sources */,
 				222201D325A25F18001349F9 /* ViewController.swift in Sources */,
 				BC194CA025A7D893002FA7E1 /* Bumper.swift in Sources */,

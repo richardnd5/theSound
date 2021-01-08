@@ -40,6 +40,7 @@ class GameScene: SKScene {
                 
         addChild(hero)
         hero.position = CGPoint(x: worldBlockWidth/2, y: worldBlockWidth/2)
+        hero.physicsBody?.mass *= 2
         
         camera = cameraNode
         cameraNode.position = hero.position

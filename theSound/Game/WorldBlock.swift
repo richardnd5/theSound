@@ -15,7 +15,7 @@ struct BlockPosition: Equatable {
 class WorldBlock: SKNode {
     
     private enum WorldType: CaseIterable {
-        case planks, bumpers
+        case planks, bumpers, triangles
     }
     
     var width: CGFloat!
@@ -56,6 +56,8 @@ class WorldBlock: SKNode {
             makePlanks()
         case .bumpers:
             makeBumpers()
+        case .triangles:
+            makeTriangles()
         case .none:
             return
         }
@@ -86,12 +88,23 @@ class WorldBlock: SKNode {
     }
     
     private func makeBumpers() {
-        let nBumpers = Int.random(in: 3...15)
+        let nBumpers = Int.random(in: 3...10)
         
         for _ in 0..<nBumpers {
             let bumper = Bumper()
             bumper.position = randomPositionInBlock
             addChild(bumper)
+        }
+    }
+    
+    private func makeTriangles() {
+        let nTirangles = Int.random(in: 3...10)
+        
+        for _ in 0..<nTirangles {
+            let triangle = Triangle()
+            triangle.position = randomPositionInBlock
+            triangle.zRotation = CGFloat.random(in: 0...CGFloat.pi)
+            addChild(triangle)
         }
     }
     
