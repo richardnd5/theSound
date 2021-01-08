@@ -42,6 +42,7 @@ class WorldBlock: SKNode {
     }
     
     private func addBackground() {
+        // For testing purposes
         let blockBG = SKShapeNode(rectOf: CGSize(width: width, height: width))
         blockBG.fillColor = UIColor.randomHueFaded
         addChild(blockBG)
@@ -90,11 +91,20 @@ class WorldBlock: SKNode {
     }
     
     private func makeBumpers() {
-        let nBumpers = Int.random(in: 3...10)
+        let spacing: CGFloat = 350
+        let positions: [(CGFloat, CGFloat)] = [
+            (0, 0),
+            (0, spacing),
+            (spacing, -spacing*0.5),
+            (spacing, spacing*0.5),
+            (spacing, spacing*1.5),
+            (spacing*2, 0),
+            (spacing*2, spacing),
+        ]
         
-        for _ in 0..<nBumpers {
+        positions.forEach { pos in
             let bumper = Bumper()
-            bumper.position = randomPositionInBlock
+            bumper.position = CGPoint(x: pos.0, y: pos.1)
             addChild(bumper)
         }
     }

@@ -30,7 +30,7 @@ class HeroBall: SKNode {
         physicsBody?.linearDamping = 0.5
         physicsBody?.restitution = 0.4
         physicsBody?.categoryBitMask = BitMask.Hero
-        physicsBody?.contactTestBitMask = BitMask.StickyBall
+        physicsBody?.contactTestBitMask = BitMask.StickyBall | BitMask.Bumper
     }
     
     required init?(coder aDecoder: NSCoder) {

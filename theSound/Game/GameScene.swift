@@ -10,7 +10,8 @@ import SpriteKit
 struct BitMask {
     static let None: UInt32 = 0x1 << 0
     static let Hero: UInt32 = 0x1 << 1
-    static let StickyBall: UInt32 = 0x1 << 2
+    static let Bumper: UInt32 = 0x1 << 2
+    static let StickyBall: UInt32 = 0x1 << 3
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -150,7 +151,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let otherNode = maskA == BitMask.StickyBall ? nodeB : nodeA
             otherNode.stopMotion()
         }
+        
+        // Bumper collides with anything
+        if maskA == BitMask.Bumper || maskB == BitMask.Bumper {
+            guard let nodeA = contact.bodyA.node else { return }
+            guard let nodeB = contact.bodyB.node else { return }
+            
+            let bumperNode = maskA == BitMask.Bumper ? nodeA : nodeB
+            let otherNode = maskA == BitMask.Bumper ? nodeB : nodeA
+            
+            bounceObjectAway(from: bumperNode, object: otherNode, speed: 1500)
+        }
     }
+
     
     // MARK: Memory Management
     private func cleanup() {

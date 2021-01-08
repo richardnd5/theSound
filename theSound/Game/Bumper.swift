@@ -32,7 +32,8 @@ class Bumper: SKNode {
     private func setupPhysics() {
         physicsBody = SKPhysicsBody(circleOfRadius: radius)
         physicsBody?.isDynamic = false
-        physicsBody?.restitution = 2.0
+        physicsBody?.categoryBitMask = BitMask.Bumper
+        physicsBody?.contactTestBitMask = BitMask.Hero
     }
     
     required init?(coder aDecoder: NSCoder) {
