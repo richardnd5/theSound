@@ -91,20 +91,21 @@ class WorldBlock: SKNode {
     }
     
     private func makeBumpers() {
-        let spacing: CGFloat = 350
-        let positions: [(CGFloat, CGFloat)] = [
-            (0, 0),
-            (0, spacing),
-            (spacing, -spacing*0.5),
-            (spacing, spacing*0.5),
-            (spacing, spacing*1.5),
-            (spacing*2, 0),
-            (spacing*2, spacing),
+        let spacing: CGFloat = 320
+        
+        let hexagonPositions: [CGPoint] = [
+            CGPoint(x: 0, y: 0),
+            CGPoint(x: 0, y: spacing),
+            CGPoint(x: spacing, y: -spacing*0.5),
+            CGPoint(x: spacing, y: spacing*0.5),
+            CGPoint(x: spacing, y: spacing*1.5),
+            CGPoint(x: spacing*2, y: 0),
+            CGPoint(x: spacing*2, y: spacing)
         ]
         
-        positions.forEach { pos in
+        hexagonPositions.forEach { pos in
             let bumper = Bumper()
-            bumper.position = CGPoint(x: pos.0, y: pos.1)
+            bumper.position = pos
             addChild(bumper)
         }
     }

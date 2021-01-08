@@ -54,19 +54,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cameraNode.position = hero.position
         
         createBlocks(around: previousBlockPosition)
-        
-        cleanupTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {_ in
-            self.cleanup()
-        })
-        
+            
         instructionLabel.position = CGPoint(x: hero.position.x, y: hero.position.y + 400)
         addChild(instructionLabel)
+        
+        setupTimers()
     }
         
     private func addBackground() {
         backgroundStars = BackgroundStars(size: size)
         backgroundStars.zPosition = ZLayers.background
         addChild(backgroundStars)
+    }
+    
+    private func setupTimers() {
+        cleanupTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {_ in
+            self.cleanup()
+        })
     }
     
     // MARK: Game Events

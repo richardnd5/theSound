@@ -13,9 +13,9 @@ class GameLabel: SKNode {
         super.init()
         
         let label = SKLabelNode(text: text)
-        label.fontColor = .yellow
         label.fontName = "Verdana-Bold"
         label.fontSize = 30
+        label.fontColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         addChild(label)
     }
     
