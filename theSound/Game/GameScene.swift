@@ -128,6 +128,7 @@ class GameScene: SKScene {
         backgroundStars.position.y = hero.position.y * 0.95
 
         checkIfCurrentBlockChanged()
+        backgroundStars.checkForStarWrapAround(heroPosition: hero.position, screenSize: size)
     }
     
     private func checkIfCurrentBlockChanged() {
@@ -136,7 +137,6 @@ class GameScene: SKScene {
         }
         previousBlockPosition = currentBlockPosition
     }
-    
     
     private func cleanup() {
         // remove things way outside view

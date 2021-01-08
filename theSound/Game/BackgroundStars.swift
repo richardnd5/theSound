@@ -23,6 +23,26 @@ class BackgroundStars: SKNode {
         }
     }
     
+    func checkForStarWrapAround(heroPosition: CGPoint, screenSize: CGSize) {
+        children.forEach {
+            let starToHero_X = $0.position.x + (position.x - heroPosition.x)
+            let starToHero_Y = $0.position.y + (position.y - heroPosition.y)
+            
+            if starToHero_X > screenSize.width/2 {
+                $0.position.x -= screenSize.width
+            }
+            if starToHero_X < screenSize.width/2 {
+                $0.position.x += screenSize.width
+            }
+            if starToHero_Y > screenSize.height/2 {
+                $0.position.y -= screenSize.height
+            }
+            if starToHero_Y < screenSize.height/2 {
+                $0.position.y += screenSize.height
+            }
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
