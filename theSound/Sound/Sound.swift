@@ -28,7 +28,8 @@ public struct Sound {
 extension Sound {
 
 	mutating func playNoteOfMelody() {
-		melodyPlayer.playNoteOfMelody()
+		let note = melodyPlayer.getNoteOfMelody()
+		soundEffects.play(.marimbaC, number: note, velocity: 120)
 	}
 
 	mutating func playMarimba(note: Int, velocity: Int = 127){

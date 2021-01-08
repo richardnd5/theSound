@@ -18,13 +18,14 @@ public class MelodyPlayer {
 		return MusicConstants.majorScale[degree-1]
 	}
 
-	func playNoteOfMelody() {
-		let midiNote = scaleDegreeToMidiNote(melody[currentMelodyStep])!
+	func getNoteOfMelody() -> MIDINoteNumber {
 
-		Sound.shared.soundEffects.play(.marimbaC, number: midiNote, velocity: 120)
+		let noteToReturn = scaleDegreeToMidiNote(melody[currentMelodyStep])!
+
 		currentMelodyStep += 1
 		if currentMelodyStep >= melody.count {
 			currentMelodyStep = 0
 		}
+		return noteToReturn
 	}
 }
