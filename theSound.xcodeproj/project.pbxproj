@@ -25,10 +25,11 @@
 		BC194C9D25A7D893002FA7E1 /* BackgroundStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9825A7D893002FA7E1 /* BackgroundStars.swift */; };
 		BC194C9E25A7D893002FA7E1 /* WorldBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9B25A7D893002FA7E1 /* WorldBlock.swift */; };
 		BC194CA025A7D893002FA7E1 /* Bumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9525A7D893002FA7E1 /* Bumper.swift */; };
-		BC194CA125A7D893002FA7E1 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9625A7D893002FA7E1 /* Ball.swift */; };
+		BC194CA125A7D893002FA7E1 /* HeroBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9625A7D893002FA7E1 /* HeroBall.swift */; };
 		BC194CA225A7D893002FA7E1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9725A7D893002FA7E1 /* GameScene.swift */; };
 		BC194CA325A7D893002FA7E1 /* Plank.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC194C9925A7D893002FA7E1 /* Plank.swift */; };
 		BC2177C025A7FE66005F05B3 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2177BF25A7FE66005F05B3 /* Triangle.swift */; };
+		BC2177C625A809BF005F05B3 /* StickyBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2177C525A809BF005F05B3 /* StickyBall.swift */; };
 		BCE76EDD25A7DC3D009F6A60 /* SKScene+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */; };
 		BCE76EE025A7DD22009F6A60 /* GameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */; };
 /* End PBXBuildFile section */
@@ -54,12 +55,13 @@
 		24ACC2A4218FB285ACC8EAE1 /* Pods_theSound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theSound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72EF15B399D3641FBCC12793 /* Pods-theSound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theSound.debug.xcconfig"; path = "Target Support Files/Pods-theSound/Pods-theSound.debug.xcconfig"; sourceTree = "<group>"; };
 		BC194C9525A7D893002FA7E1 /* Bumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bumper.swift; sourceTree = "<group>"; };
-		BC194C9625A7D893002FA7E1 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		BC194C9625A7D893002FA7E1 /* HeroBall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroBall.swift; sourceTree = "<group>"; };
 		BC194C9725A7D893002FA7E1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		BC194C9825A7D893002FA7E1 /* BackgroundStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStars.swift; sourceTree = "<group>"; };
 		BC194C9925A7D893002FA7E1 /* Plank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plank.swift; sourceTree = "<group>"; };
 		BC194C9B25A7D893002FA7E1 /* WorldBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldBlock.swift; sourceTree = "<group>"; };
 		BC2177BF25A7FE66005F05B3 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		BC2177C525A809BF005F05B3 /* StickyBall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyBall.swift; sourceTree = "<group>"; };
 		BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+extensions.swift"; sourceTree = "<group>"; };
 		BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,10 +141,11 @@
 				BC194C9725A7D893002FA7E1 /* GameScene.swift */,
 				BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */,
 				BC194C9B25A7D893002FA7E1 /* WorldBlock.swift */,
-				BC2177BF25A7FE66005F05B3 /* Triangle.swift */,
-				BC194C9625A7D893002FA7E1 /* Ball.swift */,
+				BC194C9625A7D893002FA7E1 /* HeroBall.swift */,
 				BC194C9925A7D893002FA7E1 /* Plank.swift */,
 				BC194C9525A7D893002FA7E1 /* Bumper.swift */,
+				BC2177BF25A7FE66005F05B3 /* Triangle.swift */,
+				BC2177C525A809BF005F05B3 /* StickyBall.swift */,
 				BC194C9825A7D893002FA7E1 /* BackgroundStars.swift */,
 				BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */,
 			);
@@ -271,7 +274,8 @@
 				BCE76EDD25A7DC3D009F6A60 /* SKScene+extensions.swift in Sources */,
 				228F5CA025A26B9A00E2EF45 /* MusicConstants.swift in Sources */,
 				228F5C9125A2662200E2EF45 /* SoundEffects.swift in Sources */,
-				BC194CA125A7D893002FA7E1 /* Ball.swift in Sources */,
+				BC2177C625A809BF005F05B3 /* StickyBall.swift in Sources */,
+				BC194CA125A7D893002FA7E1 /* HeroBall.swift in Sources */,
 				BC194C9E25A7D893002FA7E1 /* WorldBlock.swift in Sources */,
 				222201D125A25F18001349F9 /* SceneDelegate.swift in Sources */,
 			);

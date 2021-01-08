@@ -18,6 +18,11 @@ extension SKNode {
         physicsBody?.velocity.dx += dx * factor
         physicsBody?.velocity.dy += dy * factor
     }
+    
+    func stopMotion() {
+        physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        physicsBody?.angularVelocity = 0
+    }
 }
 
 extension UIColor {

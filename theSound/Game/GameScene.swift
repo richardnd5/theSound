@@ -7,7 +7,13 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+struct BitMask {
+    static let None: UInt32 = 0x1 << 0
+    static let Hero: UInt32 = 0x1 << 1
+    static let StickyBall: UInt32 = 0x1 << 2
+}
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
         
     private struct ZLayers {
         static let background: CGFloat = -100
@@ -28,19 +34,20 @@ class GameScene: SKScene {
     var cleanupTimer: Timer!
     
     let cameraNode = SKCameraNode()
-    let hero = Ball()
+    let hero = HeroBall()
     var backgroundStars: BackgroundStars!
     let instructionLabel = GameLabel(text: "Swipe to move ball")
     
+    // MARK: Setup
     override func didMove(to view: SKView) {
         backgroundColor = #colorLiteral(red: 0.09816829115, green: 0.06094957143, blue: 0.177924186, alpha: 1)
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
     
         addBackground()
-                
+        
         addChild(hero)
         hero.position = CGPoint(x: worldBlockWidth/2, y: worldBlockWidth/2)
-        hero.physicsBody?.mass *= 2
         
         camera = cameraNode
         cameraNode.position = hero.position
@@ -54,13 +61,14 @@ class GameScene: SKScene {
         instructionLabel.position = CGPoint(x: hero.position.x, y: hero.position.y + 400)
         addChild(instructionLabel)
     }
-    
+        
     private func addBackground() {
         backgroundStars = BackgroundStars(size: size)
         backgroundStars.zPosition = ZLayers.background
         addChild(backgroundStars)
     }
     
+    // MARK: Game Events
     private func createBlocks(around pos: BlockPosition) {
         let positions: [BlockPosition] = [
             BlockPosition(x: pos.x, y: pos.y),
@@ -95,17 +103,7 @@ class GameScene: SKScene {
         worldBlocks.append(block)
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {        
-        for t in touches {
-            let touchPoint = t.location(in: self)
-            
-            // TAP BUTTON
-            for node in nodes(at: touchPoint) {
-                // check for node name
-            }
-        }
-    }
-    
+    // MARK: touches
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
             // FLICK HERO AROUND
@@ -121,6 +119,7 @@ class GameScene: SKScene {
         }
     }
 
+    // MARK: Frame Loop
     override func didSimulatePhysics() {
         cameraNode.position = hero.position
         
@@ -139,6 +138,21 @@ class GameScene: SKScene {
         previousBlockPosition = currentBlockPosition
     }
     
+    // MARK: Collisions
+    func didBegin(_ contact: SKPhysicsContact) {
+        let maskA = contact.bodyA.categoryBitMask
+        let maskB = contact.bodyB.categoryBitMask
+        
+        // StickyBall collides with anything
+        if maskA == BitMask.StickyBall || maskB == BitMask.StickyBall {
+            guard let nodeA = contact.bodyA.node else { return }
+            guard let nodeB = contact.bodyB.node else { return }
+            let otherNode = maskA == BitMask.StickyBall ? nodeB : nodeA
+            otherNode.stopMotion()
+        }
+    }
+    
+    // MARK: Memory Management
     private func cleanup() {
         // remove things way outside view
     }

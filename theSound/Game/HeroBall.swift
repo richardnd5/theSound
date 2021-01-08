@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class Ball: SKNode {
+class HeroBall: SKNode {
     
     let radius: CGFloat = 20
     let color = #colorLiteral(red: 0.4824152589, green: 0.3049225211, blue: 0.8937572837, alpha: 1)
@@ -26,8 +26,11 @@ class Ball: SKNode {
     private func setupPhysics() {
         physicsBody = SKPhysicsBody(circleOfRadius: radius)
         physicsBody?.isDynamic = true
+        physicsBody?.mass *= 2
         physicsBody?.linearDamping = 0.5
         physicsBody?.restitution = 0.4
+        physicsBody?.categoryBitMask = BitMask.Hero
+        physicsBody?.contactTestBitMask = BitMask.StickyBall
     }
     
     required init?(coder aDecoder: NSCoder) {

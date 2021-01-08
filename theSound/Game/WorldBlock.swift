@@ -15,7 +15,7 @@ struct BlockPosition: Equatable {
 class WorldBlock: SKNode {
     
     private enum WorldType: CaseIterable {
-        case planks, bumpers, triangles
+        case planks, bumpers, triangles, stickyBall
     }
     
     var width: CGFloat!
@@ -58,6 +58,8 @@ class WorldBlock: SKNode {
             makeBumpers()
         case .triangles:
             makeTriangles()
+        case .stickyBall:
+            makeStickyBalls()
         case .none:
             return
         }
@@ -108,4 +110,13 @@ class WorldBlock: SKNode {
         }
     }
     
+    private func makeStickyBalls() {
+        let nBalls = Int.random(in: 3...10)
+        
+        for _ in 0..<nBalls {
+            let stickyBall = StickyBall()
+            stickyBall.position = randomPositionInBlock
+            addChild(stickyBall)
+        }
+    }
 }
