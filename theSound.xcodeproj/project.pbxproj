@@ -31,6 +31,7 @@
 		BC2177C025A7FE66005F05B3 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2177BF25A7FE66005F05B3 /* Triangle.swift */; };
 		BC2177C625A809BF005F05B3 /* StickyBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2177C525A809BF005F05B3 /* StickyBall.swift */; };
 		BC2177CC25A83F4D005F05B3 /* SKNode+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2177CB25A83F4D005F05B3 /* SKNode+extensions.swift */; };
+		BC46F0D525A92282005BBE3A /* SoundBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46F0D425A92282005BBE3A /* SoundBall.swift */; };
 		BCE76EDD25A7DC3D009F6A60 /* SKScene+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */; };
 		BCE76EE025A7DD22009F6A60 /* GameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		BC2177BF25A7FE66005F05B3 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		BC2177C525A809BF005F05B3 /* StickyBall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyBall.swift; sourceTree = "<group>"; };
 		BC2177CB25A83F4D005F05B3 /* SKNode+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKNode+extensions.swift"; sourceTree = "<group>"; };
+		BC46F0D425A92282005BBE3A /* SoundBall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBall.swift; sourceTree = "<group>"; };
 		BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+extensions.swift"; sourceTree = "<group>"; };
 		BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +146,7 @@
 				BCE76EDF25A7DD22009F6A60 /* GameLabel.swift */,
 				BC194C9B25A7D893002FA7E1 /* WorldBlock.swift */,
 				BC194C9625A7D893002FA7E1 /* HeroBall.swift */,
+				BC46F0D425A92282005BBE3A /* SoundBall.swift */,
 				BC194C9925A7D893002FA7E1 /* Plank.swift */,
 				BC194C9525A7D893002FA7E1 /* Bumper.swift */,
 				BC2177BF25A7FE66005F05B3 /* Triangle.swift */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC194C9D25A7D893002FA7E1 /* BackgroundStars.swift in Sources */,
+				BC46F0D525A92282005BBE3A /* SoundBall.swift in Sources */,
 				BC2177CC25A83F4D005F05B3 /* SKNode+extensions.swift in Sources */,
 				228F5CAA25A28FC300E2EF45 /* MelodyPlayer.swift in Sources */,
 				BC194CA225A7D893002FA7E1 /* GameScene.swift in Sources */,

@@ -12,6 +12,8 @@ struct BitMask {
     static let Hero: UInt32 = 0x1 << 1
     static let Bumper: UInt32 = 0x1 << 2
     static let StickyBall: UInt32 = 0x1 << 3
+    static let SoundBall: UInt32 = 0x1 << 4
+    static let Plank: UInt32 = 0x1 << 5
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -25,6 +27,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let worldBlockWidth: CGFloat = 1500
     var worldBlocks = [WorldBlock]()
     
+    let tempo: CGFloat = 110
+    var soundTimer: Timer!
+    var beatIndex = 0
+    var subdivisions = 16
+    
     var currentBlockPosition: BlockPosition {
         let x = Int(floor(hero.position.x/CGFloat(worldBlockWidth)))
         let y = Int(floor(hero.position.y/CGFloat(worldBlockWidth)))
@@ -37,7 +44,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let cameraNode = SKCameraNode()
     let hero = HeroBall()
     var backgroundStars: BackgroundStars!
-    let instructionLabel = GameLabel(text: "Swipe to move ball")
+    let instructionLabel = GameLabel(text: "Swipe to move")
     
     // MARK: Setup
     override func didMove(to view: SKView) {
@@ -55,10 +62,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         createBlocks(around: previousBlockPosition)
             
-        instructionLabel.position = CGPoint(x: hero.position.x, y: hero.position.y + 400)
+        instructionLabel.position = CGPoint(x: hero.position.x, y: hero.position.y + 200)
         addChild(instructionLabel)
         
-        setupTimers()
+        cleanupTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {_ in
+            self.cleanup()
+        })
+        setupSoundTimer()
     }
         
     private func addBackground() {
@@ -67,9 +77,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(backgroundStars)
     }
     
-    private func setupTimers() {
-        cleanupTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {_ in
-            self.cleanup()
+    private func setupSoundTimer() {
+        let beatDuration = TimeInterval(60/tempo)
+        //16th Notes
+        soundTimer = Timer.scheduledTimer(withTimeInterval: beatDuration/4, repeats: true, block: { _ in
+            self.playBeatSubdivision()
         })
     }
     
@@ -133,6 +145,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         backgroundStars.position.y = hero.position.y * 0.95
 
         checkIfCurrentBlockChanged()
+        worldBlocks.forEach {
+            $0.checkForSoundBallsInView(heroPosition: hero.position, screenSize: size)
+        }
         backgroundStars.checkForStarWrapAround(heroPosition: hero.position, screenSize: size)
     }
     
@@ -166,11 +181,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             bounceObjectAway(from: bumperNode, object: otherNode, speed: 1500)
         }
+        
+        // Hero collides with SoundBall
+        if (maskA == BitMask.Hero || maskB == BitMask.SoundBall) ||
+            (maskA == BitMask.SoundBall || maskB == BitMask.Hero){
+            guard let nodeA = contact.bodyA.node else { return }
+            guard let nodeB = contact.bodyB.node else { return }
+        
+            let soundBallNode = maskA == BitMask.SoundBall ? nodeA : nodeB
+            guard let soundBall = soundBallNode as? SoundBall else {
+                return
+            }
+            soundBall.removeFromParent()
+        }
     }
-
     
     // MARK: Memory Management
     private func cleanup() {
         // remove things way outside view
+    }
+    
+    // MARL: Sound
+    func playBeatSubdivision() {
+        worldBlocks.forEach {
+            for child in $0.children {
+                guard let soundBall = child as? SoundBall else {
+                    continue
+                }
+                soundBall.playBeat(beatIndex: beatIndex)
+            }
+        }
+
+        beatIndex += 1
+        if beatIndex == subdivisions {
+            beatIndex = 0
+        }
     }
 }

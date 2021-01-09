@@ -25,6 +25,12 @@ extension SKNode {
         ]))
     }
     
+    func distanceFrom(point: CGPoint) -> CGFloat {
+        let dx = point.x - position.x
+        let dy = point.y - position.y
+        return sqrt(pow(dx, 2) + pow(dy, 2))
+    }
+    
     var speedScalar: CGFloat {
         guard let dx = physicsBody?.velocity.dx,
               let dy = physicsBody?.velocity.dy else {

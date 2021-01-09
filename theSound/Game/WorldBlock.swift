@@ -15,7 +15,7 @@ struct BlockPosition: Equatable {
 class WorldBlock: SKNode {
     
     private enum WorldType: CaseIterable {
-        case planks, bumpers, triangles, stickyBall
+        case soundBalls, planks, bumpers, triangles, stickyBall
     }
     
     var width: CGFloat!
@@ -50,19 +50,17 @@ class WorldBlock: SKNode {
     }
     
     private func setup() {
-        let worldType = WorldType.allCases.randomElement()
+        makeSoundBalls()
+        makePlanks()
+    }
+    
+    private func makeSoundBalls() {
+        let nBalls = Int.random(in: 1...4)
         
-        switch worldType {
-        case .planks:
-            makePlanks()
-        case .bumpers:
-            makeBumpers()
-        case .triangles:
-            makeTriangles()
-        case .stickyBall:
-            makeStickyBalls()
-        case .none:
-            return
+        for _ in 0..<nBalls {
+            let soundBall = SoundBall()
+            soundBall.position = randomPositionInBlock
+            addChild(soundBall)
         }
     }
 
@@ -76,8 +74,7 @@ class WorldBlock: SKNode {
                 return CGSize(width: w, height: h)
             }
             
-            let isRigid = Bool.random()
-            let plank = Plank(size: plankSize, isRigid: isRigid)
+            let plank = Plank(size: plankSize, isRigid: true)
             plank.position = randomPositionInBlock
             addChild(plank)
 
@@ -128,6 +125,23 @@ class WorldBlock: SKNode {
             let stickyBall = StickyBall()
             stickyBall.position = randomPositionInBlock
             addChild(stickyBall)
+        }
+    }
+    
+    func checkForSoundBallsInView(heroPosition: CGPoint, screenSize: CGSize) {
+        for child in children {
+            guard let soundBall = child as? SoundBall else {
+                continue
+            }
+            let ballToHero_X = soundBall.position.x + (position.x - heroPosition.x)
+            let ballToHero_Y = soundBall.position.y + (position.y - heroPosition.y)
+            
+            if (-screenSize.width/2...screenSize.width/2).contains(ballToHero_X) &&
+                (-screenSize.height/2...screenSize.height/2).contains(ballToHero_Y) {
+                soundBall.soundIsActivated = true
+            } else {
+                soundBall.soundIsActivated = false
+            }
         }
     }
 }

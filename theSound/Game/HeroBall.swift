@@ -36,7 +36,8 @@ class HeroBall: SKNode {
         physicsBody?.linearDamping = 0.5
         physicsBody?.restitution = 0.4
         physicsBody?.categoryBitMask = BitMask.Hero
-        physicsBody?.contactTestBitMask = BitMask.StickyBall | BitMask.Bumper
+        physicsBody?.collisionBitMask = BitMask.Plank
+        physicsBody?.contactTestBitMask = BitMask.SoundBall | BitMask.StickyBall | BitMask.Bumper
     }
     
     private func leaveTrailMark() {

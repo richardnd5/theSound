@@ -33,6 +33,7 @@ class Plank: SKNode {
         physicsBody = SKPhysicsBody(rectangleOf: size)
         physicsBody?.isDynamic = !isRigid
         physicsBody?.restitution = 0.2
+        physicsBody?.categoryBitMask = BitMask.Plank
     }
     
     required init?(coder aDecoder: NSCoder) {

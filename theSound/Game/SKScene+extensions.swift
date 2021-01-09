@@ -25,6 +25,13 @@ extension SKScene {
 }
 
 extension UIColor {
+    static var random: UIColor {
+        let r = CGFloat.random(in: 0...1)
+        let b = CGFloat.random(in: 0...1)
+        let g = CGFloat.random(in: 0...1)
+        return UIColor(red: r, green: b, blue: g, alpha: 1.0)
+    }
+    
     static var randomHueFaded: UIColor {
         let h = CGFloat.random(in: 0...1)
         return UIColor(hue: h, saturation: 0.4, brightness: 1.0, alpha: 0.6)
