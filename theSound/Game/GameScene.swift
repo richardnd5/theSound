@@ -16,6 +16,10 @@ struct BitMask {
     static let Plank: UInt32 = 0x1 << 5
 }
 
+enum WorldMode {
+    case sky, space
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
         
     private struct ZLayers {
@@ -24,6 +28,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         static let UI: CGFloat = 100
     }
 
+    let worldMode = WorldMode.sky
+    
     let worldBlockWidth: CGFloat = 1500
     var worldBlocks = [WorldBlock]()
     
@@ -31,6 +37,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var soundTimer: Timer!
     var beatIndex = 0
     var subdivisions = 16
+    
+    var soundBallsCollected = [SoundBallMini]()
     
     var currentBlockPosition: BlockPosition {
         let x = Int(floor(hero.position.x/CGFloat(worldBlockWidth)))
@@ -48,19 +56,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Setup
     override func didMove(to view: SKView) {
-        backgroundColor = #colorLiteral(red: 0.09816829115, green: 0.06094957143, blue: 0.177924186, alpha: 1)
-        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        let grav_Y = worldMode == .space ? 0 : -5
+        physicsWorld.gravity = CGVector(dx: 0, dy: grav_Y)
         physicsWorld.contactDelegate = self
     
         addBackground()
-        
         addChild(hero)
-        hero.position = CGPoint(x: worldBlockWidth/2, y: worldBlockWidth/2)
         
         camera = cameraNode
         cameraNode.position = hero.position
         
-        createBlocks(around: previousBlockPosition)
+        createBlocks(around: currentBlockPosition)
             
         instructionLabel.position = CGPoint(x: hero.position.x, y: hero.position.y + 200)
         addChild(instructionLabel)
@@ -72,6 +78,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
         
     private func addBackground() {
+        backgroundColor = worldMode == .space ? #colorLiteral(red: 0.09816829115, green: 0.06094957143, blue: 0.177924186, alpha: 1) : #colorLiteral(red: 0.2785946727, green: 0.2789702415, blue: 0.5156394839, alpha: 1)
+
         backgroundStars = BackgroundStars(size: size)
         backgroundStars.zPosition = ZLayers.background
         addChild(backgroundStars)
@@ -114,8 +122,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let block = WorldBlock(blockPosition: blockPosition, width: worldBlockWidth)
         addChild(block)
 
-        block.position.x = (CGFloat(blockPosition.x) * worldBlockWidth) + worldBlockWidth/2
-        block.position.y = (CGFloat(blockPosition.y) * worldBlockWidth) + worldBlockWidth/2
+        block.position.x = (CGFloat(blockPosition.x) * worldBlockWidth)
+        block.position.y = (CGFloat(blockPosition.y) * worldBlockWidth)
         
         worldBlocks.append(block)
     }
@@ -148,6 +156,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         worldBlocks.forEach {
             $0.checkForSoundBallsInView(heroPosition: hero.position, screenSize: size)
         }
+        soundBallsFollowHero()
         backgroundStars.checkForStarWrapAround(heroPosition: hero.position, screenSize: size)
     }
     
@@ -156,6 +165,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             createBlocks(around: currentBlockPosition)
         }
         previousBlockPosition = currentBlockPosition
+    }
+    
+    private func soundBallsFollowHero() {
+        for (index, soundBall) in soundBallsCollected.enumerated() {
+            let delay = TimeInterval(index+1) * 0.2
+            let heroPosition = hero.position
+            Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
+                soundBall.position = heroPosition
+            }
+        }
     }
     
     // MARK: Collisions
@@ -179,7 +198,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let bumperNode = maskA == BitMask.Bumper ? nodeA : nodeB
             let otherNode = maskA == BitMask.Bumper ? nodeB : nodeA
             
-            bounceObjectAway(from: bumperNode, object: otherNode, speed: 1500)
+            bumperNode.pulse(to: 1.25)
+            
+            guard let bumperNodeParent = bumperNode.parent else { return }
+            let bumperPositionInScene = convert(bumperNode.position, from: bumperNodeParent)
+            bounceAway(node: otherNode, from: bumperPositionInScene, speed: 1500)
         }
         
         // Hero collides with SoundBall
@@ -192,8 +215,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             guard let soundBall = soundBallNode as? SoundBall else {
                 return
             }
+            soundBallCollected(soundBall: soundBall)
             soundBall.removeFromParent()
         }
+    }
+    
+    private func soundBallCollected(soundBall: SoundBall) {
+        let soundBallMini = SoundBallMini(
+            innerColor: soundBall.innerColor,
+            outerColor: soundBall.outerColor,
+            rhythm: soundBall.rhythm,
+            noteNumber: soundBall.noteNumber
+        )
+        soundBallMini.position.x = soundBall.position.x + (soundBall.parent?.position.x)!
+        soundBallMini.position.y = soundBall.position.y + (soundBall.parent?.position.y)!
+        addChild(soundBallMini)
+        soundBallsCollected.append(soundBallMini)
     }
     
     // MARK: Memory Management
@@ -201,7 +238,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // remove things way outside view
     }
     
-    // MARL: Sound
+    // MARK: Sound
     func playBeatSubdivision() {
         worldBlocks.forEach {
             for child in $0.children {
@@ -210,6 +247,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
                 soundBall.playBeat(beatIndex: beatIndex)
             }
+        }
+        
+        soundBallsCollected.forEach {
+            $0.playBeat(beatIndex: beatIndex)
         }
 
         beatIndex += 1
