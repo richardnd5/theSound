@@ -162,6 +162,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         let maskA = contact.bodyA.categoryBitMask
         let maskB = contact.bodyB.categoryBitMask
+
+
+//			print("mask a is Hero",maskA == BitMask.Hero)
+//			print("mask a is Bumper",maskA == BitMask.Bumper)
+//			print("mask a is Plank",maskA == BitMask.Plank)
+//			print("mask a is SoundBall",maskA == BitMask.SoundBall)
+//
+//
+//			print("mask b is Hero",maskB == BitMask.Hero)
+//			print("mask b is Bumper",maskB == BitMask.Bumper)
+//			print("mask b is Plank",maskB == BitMask.Plank)
+//			print("mask b is SoundBall",maskB == BitMask.SoundBall)
+
+			// Hero collides with Bumper
+			if (maskA == BitMask.Plank || maskB == BitMask.Hero) {
+				Sound.shared.soundEffects.playRandomPitch(.plankHit, noteRange: 60...65)
+				return
+			}
+
+			if (maskA == BitMask.StickyBall || maskB == BitMask.Hero
+						|| maskA == BitMask.Hero || maskB == BitMask.StickyBall) {
+				Sound.shared.soundEffects.playRandomPitch(.collectSound, noteRange: 60...65)
+			}
+
         
         // StickyBall collides with anything
         if maskA == BitMask.StickyBall || maskB == BitMask.StickyBall {
@@ -194,6 +218,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             soundBall.removeFromParent()
         }
+
+
     }
     
     // MARK: Memory Management

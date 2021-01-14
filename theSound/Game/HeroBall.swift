@@ -37,7 +37,7 @@ class HeroBall: SKNode {
         physicsBody?.restitution = 0.4
         physicsBody?.categoryBitMask = BitMask.Hero
         physicsBody?.collisionBitMask = BitMask.Plank
-        physicsBody?.contactTestBitMask = BitMask.SoundBall | BitMask.StickyBall | BitMask.Bumper
+			physicsBody?.contactTestBitMask = BitMask.SoundBall | BitMask.StickyBall | BitMask.Bumper | BitMask.Plank
     }
     
     private func leaveTrailMark() {

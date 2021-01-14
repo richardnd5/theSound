@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221EA10725A97143004C3972 /* plankHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 221EA10625A97143004C3972 /* plankHit.mp3 */; };
+		221EA10D25A97670004C3972 /* BackgroundAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EA10C25A97670004C3972 /* BackgroundAudio.swift */; };
+		221EA11125A979E4004C3972 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 221EA11025A979E4004C3972 /* background.mp3 */; };
 		222201CF25A25F18001349F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222201CE25A25F18001349F9 /* AppDelegate.swift */; };
 		222201D125A25F18001349F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222201D025A25F18001349F9 /* SceneDelegate.swift */; };
 		222201D325A25F18001349F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222201D225A25F18001349F9 /* ViewController.swift */; };
 		222201D625A25F18001349F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222201D425A25F18001349F9 /* Main.storyboard */; };
 		222201D825A25F19001349F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222201D725A25F19001349F9 /* Assets.xcassets */; };
 		222201DB25A25F19001349F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222201D925A25F19001349F9 /* LaunchScreen.storyboard */; };
+		223FA37325AFD4990094D975 /* collectSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223FA37225AFD4990094D975 /* collectSound.mp3 */; };
 		228F5C9125A2662200E2EF45 /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C9025A2662200E2EF45 /* SoundEffects.swift */; };
 		228F5C9425A2664800E2EF45 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C9325A2664800E2EF45 /* SoundEffect.swift */; };
 		228F5C9725A268B300E2EF45 /* SoundClips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C9625A268B300E2EF45 /* SoundClips.swift */; };
@@ -38,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		0450BCABC07C4B6DA46F84C9 /* Pods-theSound.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theSound.release.xcconfig"; path = "Target Support Files/Pods-theSound/Pods-theSound.release.xcconfig"; sourceTree = "<group>"; };
+		221EA10625A97143004C3972 /* plankHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = plankHit.mp3; sourceTree = "<group>"; };
+		221EA10C25A97670004C3972 /* BackgroundAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundAudio.swift; sourceTree = "<group>"; };
+		221EA11025A979E4004C3972 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		222201CB25A25F18001349F9 /* theSound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theSound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		222201CE25A25F18001349F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		222201D025A25F18001349F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +53,7 @@
 		222201D725A25F19001349F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		222201DA25A25F19001349F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		222201DC25A25F19001349F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		223FA37225AFD4990094D975 /* collectSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = collectSound.mp3; sourceTree = "<group>"; };
 		228F5C9025A2662200E2EF45 /* SoundEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
 		228F5C9325A2664800E2EF45 /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		228F5C9625A268B300E2EF45 /* SoundClips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClips.swift; sourceTree = "<group>"; };
@@ -111,6 +119,9 @@
 				BC194C8525A7D6DA002FA7E1 /* Sound */,
 				228F5C9925A269EF00E2EF45 /* marimbaC.mp3 */,
 				228F5CA325A2727E00E2EF45 /* footstep1.mp3 */,
+				221EA10625A97143004C3972 /* plankHit.mp3 */,
+				221EA11025A979E4004C3972 /* background.mp3 */,
+				223FA37225AFD4990094D975 /* collectSound.mp3 */,
 				222201D725A25F19001349F9 /* Assets.xcassets */,
 				222201D925A25F19001349F9 /* LaunchScreen.storyboard */,
 				222201DC25A25F19001349F9 /* Info.plist */,
@@ -135,6 +146,7 @@
 				228F5C9625A268B300E2EF45 /* SoundClips.swift */,
 				228F5C9325A2664800E2EF45 /* SoundEffect.swift */,
 				228F5C9025A2662200E2EF45 /* SoundEffects.swift */,
+				221EA10C25A97670004C3972 /* BackgroundAudio.swift */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -228,7 +240,10 @@
 				228F5CA525A2735F00E2EF45 /* footstep1.mp3 in Resources */,
 				228F5C9A25A26A5200E2EF45 /* marimbaC.mp3 in Resources */,
 				222201DB25A25F19001349F9 /* LaunchScreen.storyboard in Resources */,
+				221EA10725A97143004C3972 /* plankHit.mp3 in Resources */,
 				222201D825A25F19001349F9 /* Assets.xcassets in Resources */,
+				223FA37325AFD4990094D975 /* collectSound.mp3 in Resources */,
+				221EA11125A979E4004C3972 /* background.mp3 in Resources */,
 				222201D625A25F18001349F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +292,7 @@
 				222201CF25A25F18001349F9 /* AppDelegate.swift in Sources */,
 				228F5C9425A2664800E2EF45 /* SoundEffect.swift in Sources */,
 				BC194CA325A7D893002FA7E1 /* Plank.swift in Sources */,
+				221EA10D25A97670004C3972 /* BackgroundAudio.swift in Sources */,
 				228F5C9725A268B300E2EF45 /* SoundClips.swift in Sources */,
 				BCE76EE025A7DD22009F6A60 /* GameLabel.swift in Sources */,
 				BCE76EDD25A7DC3D009F6A60 /* SKScene+extensions.swift in Sources */,
