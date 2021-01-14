@@ -17,6 +17,10 @@
 		222201D825A25F19001349F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222201D725A25F19001349F9 /* Assets.xcassets */; };
 		222201DB25A25F19001349F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222201D925A25F19001349F9 /* LaunchScreen.storyboard */; };
 		223FA37325AFD4990094D975 /* collectSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223FA37225AFD4990094D975 /* collectSound.mp3 */; };
+		223FA37725AFD64C0094D975 /* wallCollision.sks in Resources */ = {isa = PBXBuildFile; fileRef = 223FA37525AFD64C0094D975 /* wallCollision.sks */; };
+		223FA37825AFD64C0094D975 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223FA37625AFD64C0094D975 /* Assets.xcassets */; };
+		2271194425AFF4BB00559C4F /* StaticStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2271194325AFF4BB00559C4F /* StaticStrings.swift */; };
+		2271194925B0041700559C4F /* lingeringParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2271194825B0041700559C4F /* lingeringParticles.sks */; };
 		228F5C9125A2662200E2EF45 /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C9025A2662200E2EF45 /* SoundEffects.swift */; };
 		228F5C9425A2664800E2EF45 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C9325A2664800E2EF45 /* SoundEffect.swift */; };
 		228F5C9725A268B300E2EF45 /* SoundClips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F5C9625A268B300E2EF45 /* SoundClips.swift */; };
@@ -54,6 +58,10 @@
 		222201DA25A25F19001349F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		222201DC25A25F19001349F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		223FA37225AFD4990094D975 /* collectSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = collectSound.mp3; sourceTree = "<group>"; };
+		223FA37525AFD64C0094D975 /* wallCollision.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = wallCollision.sks; sourceTree = "<group>"; };
+		223FA37625AFD64C0094D975 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2271194325AFF4BB00559C4F /* StaticStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticStrings.swift; sourceTree = "<group>"; };
+		2271194825B0041700559C4F /* lingeringParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = lingeringParticles.sks; sourceTree = "<group>"; };
 		228F5C9025A2662200E2EF45 /* SoundEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
 		228F5C9325A2664800E2EF45 /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		228F5C9625A268B300E2EF45 /* SoundClips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClips.swift; sourceTree = "<group>"; };
@@ -129,6 +137,14 @@
 			path = theSound;
 			sourceTree = "<group>";
 		};
+		2271194625AFF5B500559C4F /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				223FA37525AFD64C0094D975 /* wallCollision.sks */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
 		3E4C44A48ECA0952C3B4986E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +181,11 @@
 				BC2177C525A809BF005F05B3 /* StickyBall.swift */,
 				BC194C9825A7D893002FA7E1 /* BackgroundStars.swift */,
 				BCE76EDC25A7DC3D009F6A60 /* SKScene+extensions.swift */,
+				2271194325AFF4BB00559C4F /* StaticStrings.swift */,
+				2271194825B0041700559C4F /* lingeringParticles.sks */,
 				BC2177CB25A83F4D005F05B3 /* SKNode+extensions.swift */,
+				2271194625AFF5B500559C4F /* Particles */,
+				223FA37625AFD64C0094D975 /* Assets.xcassets */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -239,11 +259,14 @@
 			files = (
 				228F5CA525A2735F00E2EF45 /* footstep1.mp3 in Resources */,
 				228F5C9A25A26A5200E2EF45 /* marimbaC.mp3 in Resources */,
+				2271194925B0041700559C4F /* lingeringParticles.sks in Resources */,
 				222201DB25A25F19001349F9 /* LaunchScreen.storyboard in Resources */,
 				221EA10725A97143004C3972 /* plankHit.mp3 in Resources */,
+				223FA37825AFD64C0094D975 /* Assets.xcassets in Resources */,
 				222201D825A25F19001349F9 /* Assets.xcassets in Resources */,
 				223FA37325AFD4990094D975 /* collectSound.mp3 in Resources */,
 				221EA11125A979E4004C3972 /* background.mp3 in Resources */,
+				223FA37725AFD64C0094D975 /* wallCollision.sks in Resources */,
 				222201D625A25F18001349F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC194C9D25A7D893002FA7E1 /* BackgroundStars.swift in Sources */,
+				2271194425AFF4BB00559C4F /* StaticStrings.swift in Sources */,
 				BC46F0D525A92282005BBE3A /* SoundBall.swift in Sources */,
 				BC2177CC25A83F4D005F05B3 /* SKNode+extensions.swift in Sources */,
 				228F5CAA25A28FC300E2EF45 /* MelodyPlayer.swift in Sources */,
