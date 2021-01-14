@@ -33,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let worldBlockWidth: CGFloat = 1500
     var worldBlocks = [WorldBlock]()
     
-    let tempo: CGFloat = 110
+    let tempo: CGFloat = 90
     var soundTimer: Timer!
     var beatIndex = 0
     var subdivisions = 16
