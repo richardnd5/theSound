@@ -31,13 +31,13 @@ class BackgroundStars: SKNode {
             if starToHero_X > screenSize.width/2 {
                 $0.position.x -= screenSize.width
             }
-            if starToHero_X < screenSize.width/2 {
+            if starToHero_X < -screenSize.width/2 {
                 $0.position.x += screenSize.width
             }
             if starToHero_Y > screenSize.height/2 {
                 $0.position.y -= screenSize.height
             }
-            if starToHero_Y < screenSize.height/2 {
+            if starToHero_Y < -screenSize.height/2 {
                 $0.position.y += screenSize.height
             }
         }

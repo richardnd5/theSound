@@ -16,7 +16,7 @@ class SoundBall: SKNode {
 
     var moveTimer: Timer!
     var soundIsActivated = false
-    var melody = [Bool]()
+    var rhythm = [Bool]()
     let noteNumber = MIDINoteNumber.random(in: MIDINoteNumber(48)...MIDINoteNumber(84))
 
 	var outerCircle: SKShapeNode!
@@ -48,6 +48,7 @@ class SoundBall: SKNode {
     private func setupPhysics() {
         physicsBody = SKPhysicsBody(circleOfRadius: radius)
         physicsBody?.isDynamic = true
+        physicsBody?.affectedByGravity = false
         physicsBody?.linearDamping = 0.5
         physicsBody?.restitution = 0.4
         physicsBody?.categoryBitMask = BitMask.SoundBall
@@ -71,17 +72,17 @@ class SoundBall: SKNode {
     private func generateRhythm() {
         for _ in 0..<16 {
             let beat = Float.random(in: 0...1) < 0.25 ? true : false
-            melody.append(beat)
+            rhythm.append(beat)
         }
     }
     
     func playBeat(beatIndex: Int) {
         guard soundIsActivated,
-              beatIndex < melody.count else {
+              beatIndex < rhythm.count else {
             return
         }
         
-        if melody[beatIndex] {
+        if rhythm[beatIndex] {
             Sound.shared.soundEffects.play(.marimbaC, note: noteNumber, velocity: MIDIVelocity(Int.random(in: 60...120)), pan: 0.5)
 			if canPulse {
 				pulse(to: 1.2)

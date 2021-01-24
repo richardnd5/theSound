@@ -32,7 +32,8 @@ class Plank: SKNode {
     private func setupPhysics() {
         physicsBody = SKPhysicsBody(rectangleOf: size)
         physicsBody?.isDynamic = !isRigid
-        physicsBody?.restitution = 0.2
+        physicsBody?.affectedByGravity = false
+        physicsBody?.restitution = 0.5
         physicsBody?.categoryBitMask = BitMask.Plank
 				physicsBody?.contactTestBitMask = BitMask.Hero
 				physicsBody?.collisionBitMask = BitMask.Hero

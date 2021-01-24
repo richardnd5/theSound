@@ -12,15 +12,10 @@ extension SKScene {
         return CGPoint(x: size.width/2, y: size.height/2)
     }
     
-    func bounceObjectAway(from node1: SKNode, object node2: SKNode, speed: CGFloat) {
-        node1.pulse(to: 1.25)
-        
-        guard let node1Parent = node1.parent else { return }
-        let node1PositionInScene = convert(node1.position, from: node1Parent)
-        
-        let angle = SKNode.pointDirection(point1: node1PositionInScene, point2: node2.position)
-        node2.physicsBody?.velocity.dx = speed * cos(angle)
-        node2.physicsBody?.velocity.dy = speed * sin(angle)
+    func bounceAway(node: SKNode, from position: CGPoint, speed: CGFloat) {
+        let angle = SKNode.pointDirection(point1: position, point2: node.position)
+        node.physicsBody?.velocity.dx = speed * cos(angle)
+        node.physicsBody?.velocity.dy = speed * sin(angle)
     }
 }
 

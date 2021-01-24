@@ -69,7 +69,7 @@ class WorldBlock: SKNode {
         
         for _ in 0..<nPlanks {
             var plankSize: CGSize {
-                let w = CGFloat.random(in: 150...500)
+                let w = CGFloat.random(in: 200...600)
                 let h: CGFloat = 25
                 return CGSize(width: w, height: h)
             }
@@ -79,7 +79,7 @@ class WorldBlock: SKNode {
             addChild(plank)
 
             //Angled or Straight
-            if Bool.random() {
+            if Float.random(in: 0...1) < 0.2 {
                 plank.zRotation = CGFloat.random(in: 0...CGFloat.pi)
             } else {
                 plank.zRotation = Bool.random() ? 0 : .pi/2
