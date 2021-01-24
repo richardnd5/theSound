@@ -128,6 +128,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         worldBlocks.append(block)
     }
 
+	func makeSpark(at pos: CGPoint){
+		let particle = SKEmitterNode(fileNamed: StaticStrings.wallCollisionSKS)
+		particle?.position = pos
+		particle?.zPosition = ZLayers.background-1
+		addChild(particle!)
+
+		particle?.run(.sequence([
+			.fadeAlpha(to: 0.0, duration: 0.3),
+			.removeFromParent()
+		]))
+	}
+
+
     // MARK: touches
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
@@ -147,7 +160,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: Frame Loop
     override func didSimulatePhysics() {
         cameraNode.position = hero.position
-        
+
         // Background Paralax
         backgroundStars.position.x = hero.position.x * 0.95
         backgroundStars.position.y = hero.position.y * 0.95
@@ -159,30 +172,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         soundBallsFollowHero()
         backgroundStars.checkForStarWrapAround(heroPosition: hero.position, screenSize: size)
     }
-    
+
     private func checkIfCurrentBlockChanged() {
         if currentBlockPosition != previousBlockPosition {
             createBlocks(around: currentBlockPosition)
         }
         previousBlockPosition = currentBlockPosition
     }
-    
-    private func soundBallsFollowHero() {
-        for (index, soundBall) in soundBallsCollected.enumerated() {
-            let delay = TimeInterval(index+1) * 0.2
-            let heroPosition = hero.position
-            Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
-                soundBall.position = heroPosition
-            }
-        }
-    }
-    
+
     // MARK: Collisions
     func didBegin(_ contact: SKPhysicsContact) {
         let maskA = contact.bodyA.categoryBitMask
         let maskB = contact.bodyB.categoryBitMask
-        
-        // StickyBall collides with anything
+
+
+//			print("mask a is Hero",maskA == BitMask.Hero)
+//			print("mask a is Bumper",maskA == BitMask.Bumper)
+//			print("mask a is Plank",maskA == BitMask.Plank)
+//			print("mask a is SoundBall",maskA == BitMask.SoundBall)
+//
+//
+//			print("mask b is Hero",maskB == BitMask.Hero)
+//			print("mask b is Bumper",maskB == BitMask.Bumper)
+//			print("mask b is Plank",maskB == BitMask.Plank)
+//			print("mask b is SoundBall",maskB == BitMask.SoundBall)
+
+		// Hero collides with Bumper
+		if (maskA == BitMask.Plank || maskB == BitMask.Hero) {
+			Sound.shared.soundEffects.playRandomPitch(.plankHit, noteRange: 60...65)
+			makeSpark(at: hero.position)
+			return
+		}
+
+		if (maskA == BitMask.StickyBall || maskB == BitMask.Hero
+				|| maskA == BitMask.Hero || maskB == BitMask.StickyBall) {
+			Sound.shared.soundEffects.playRandomPitch(.collectSound, noteRange: 60...65)
+		}
+
+
+		// StickyBall collides with anything
         if maskA == BitMask.StickyBall || maskB == BitMask.StickyBall {
             guard let nodeA = contact.bodyA.node else { return }
             guard let nodeB = contact.bodyB.node else { return }

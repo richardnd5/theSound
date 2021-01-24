@@ -35,6 +35,8 @@ class Plank: SKNode {
         physicsBody?.affectedByGravity = false
         physicsBody?.restitution = 0.5
         physicsBody?.categoryBitMask = BitMask.Plank
+				physicsBody?.contactTestBitMask = BitMask.Hero
+				physicsBody?.collisionBitMask = BitMask.Hero
     }
     
     required init?(coder aDecoder: NSCoder) {

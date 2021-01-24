@@ -9,17 +9,21 @@ public struct Sound {
 	private var reverb: AKReverb?
 
 	var melodyPlayer = MelodyPlayer()
+	var background = BackgroundAudio()
 
 	//MARK: Setup
 	mutating func setup(){
 
+
 		soundEffects = SoundClips(mixer: soundEffectMixer)
+		
 		reverb = AKReverb(soundEffectMixer)
 		reverb?.dryWetMix = 0.8
 
 		mainMixer.connect(input: soundEffectMixer)
 		mainMixer.connect(input: reverb)
-		print("Adding a print statement")
+		mainMixer.connect(input: background)
+		background.playLoop()
 
 	}
 }

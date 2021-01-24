@@ -55,7 +55,7 @@ class WorldBlock: SKNode {
     }
     
     private func makeSoundBalls() {
-        let nBalls = Int.random(in: 1...4)
+        let nBalls = Int.random(in: 1...10)
         
         for _ in 0..<nBalls {
             let soundBall = SoundBall()

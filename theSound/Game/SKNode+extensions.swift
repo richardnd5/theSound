@@ -19,12 +19,12 @@ extension SKNode {
     }
     
     func pulse(to scale: CGFloat) {
-        run(SKAction.sequence([
-            SKAction.scale(to: scale, duration: 0.1),
-            SKAction.scale(to: 1.0, duration: 0.1),
+        run(.sequence([
+            .scale(to: scale, duration: 0.1),
+            .scale(to: 1.0, duration: 0.1),
         ]))
     }
-    
+
     func distanceFrom(point: CGPoint) -> CGFloat {
         let dx = point.x - position.x
         let dy = point.y - position.y
