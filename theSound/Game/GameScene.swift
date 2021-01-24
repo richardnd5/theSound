@@ -179,6 +179,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         previousBlockPosition = currentBlockPosition
     }
+    
+    private func soundBallsFollowHero() {
+        for (index, soundBall) in soundBallsCollected.enumerated() {
+            let delay = TimeInterval(index+1) * 0.2
+            let heroPosition = hero.position
+            Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
+                soundBall.position = heroPosition
+            }
+        }
+    }
 
     // MARK: Collisions
     func didBegin(_ contact: SKPhysicsContact) {
